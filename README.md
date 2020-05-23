@@ -1,1 +1,1 @@
-# redux
+# redux-package
