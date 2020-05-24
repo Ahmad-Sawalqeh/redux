@@ -8,7 +8,8 @@ const IceCream = props => {
       <Fragment>
         <div>
           <h3>number of icecream is {props.numOfIceCreamsPropsName}</h3>
-          <button onClick={props.dispatchBuyIceCreamPropsName}>buy icecream</button>
+          {/* <button onClick={props.dispatchBuyIceCreamPropsName}>buy icecream</button> */}
+          <button onClick={() => props.dispatch(buyIceCream())}>buy icecream</button>
         </div>
       </Fragment>
     );
@@ -22,14 +23,18 @@ function mapStateToProps(state) {
   };
 }
 
+/*
+Note: dispatch function passed by default when mapStateToProps function used in connect function, so no need to create mapDispatchToProps function
+*/
 // function to help turn the dispatch method into props and use it in the component
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatchBuyIceCreamPropsName: () => dispatch(buyIceCream()),
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     dispatchBuyIceCreamPropsName: () => dispatch(buyIceCream()),
+//   };
+// }
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    // mapDispatchToProps
+    null
 )(IceCream);
