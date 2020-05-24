@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
-import myStore from './redux/store/store.js';
+// import myStore from './redux/store/store.js';
 import Cake from './components/cake.js';
 import IceCream from './components/icecream.js';
+import HookCake from './components/hookCake.js';
 
 // Redux is a state container (state-management) library for javascript applications, can be used with React, Angular, Vue or even vanilla Javascript
 
@@ -16,7 +17,7 @@ component => dispatch an action => reducer-function => redux-store (state) => su
 - reducer : function takes in (currentState, action) as arguments which controls how state transition happened and returns newState
 
 - store : 
-* holds state and the reducer function of the application 
+* holds state of the application 
 * allows access to state via getState() method, return current state by default
 * allows state to be updated via dispatch(action) method
 * regesters listeners via subscribe(listener), listener is a function excute each time state change
@@ -29,9 +30,9 @@ component => dispatch an action => reducer-function => redux-store (state) => su
 
 steps to make store:
 * using createStore(reducerFunction) method to create store, takes in reducer function as parameter
-* using sunscribe(function) method to let application subscribe to any changes in the store
+* using sunscribe(function) method to let application subscribe to any changes/updates in the store
 * using dispatch(function-return-action) method to update the state
-* calling unsubscribe() method which returned from subscribe(listener) method to handle unregister of listener
+* calling unsubscribe() method which returned from subscribe(listener) method for unregistering the listener (Stop listening to state updates)
 
 - Redux principles:
 1- The application state is stored in an object within a single store
@@ -40,7 +41,10 @@ steps to make store:
 
 - react-redux:
 * provider: component helps to provide store to our application
-* connect: built-in function in react-redux package takes in (mapStateToProps, mapDispatchToProps) helps to connect the mapping state to props function to the component you specify 
+* connect: 
+--> higher order built-in function in react-redux package takes in (mapStateToProps, mapDispatchToProps)
+--> helps to connect the mappStateToProps/mapDispatchToProps functions to the component you specify to access the redux store 
+--> return function then call the component function
 
 */
 
@@ -51,7 +55,8 @@ steps to make store:
 // myStore.dispatch(buyCake());
 // myStore.dispatch(buyCake());
 // myStore.dispatch(buyIceCream());
-// myStore.dispatch(buyIceCream());
+// myStore.dispatch(buyIceCream());\
+// // Stop listening to state updates
 // unsubscribe();
 
 const App = props => {
@@ -61,6 +66,8 @@ const App = props => {
         <Cake />
         <hr />
         <IceCream />
+        <hr />
+        <HookCake />
       </Fragment>
     );
 };

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { render } from "react-dom";
 import myStore from './redux/store/store.js';
 import { Provider } from "react-redux";
