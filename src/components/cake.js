@@ -25,10 +25,20 @@ function mapStateToProps(state) {
 }
 
 // function to help turn the dispatch method into props and use it in the component
+// taks in tow parameters (state, ownProps)
 function mapDispatchToProps(dispatch) {
   return {
     dispatchBuyCakePropsName: (numberOfCakes) => dispatch(buyCake(numberOfCakes))
   };
+}
+
+// function to help group all the connected methods to the component
+// taks in tow parameters (propsFromState, propsFromDispatch, ownProps)
+function mergeProps(propsFromState, propsFromDispatch, ownProps) {
+  console.log(`propsFromState => `, propsFromState);
+  console.log(`propsFromDispatch => `, propsFromDispatch);
+  console.log(`ownProps => `, ownProps);
+  return {};
 }
 
 // export default connect(
@@ -38,7 +48,8 @@ function mapDispatchToProps(dispatch) {
 
 const defaultApp = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mergeProps
 )(Cake);
 
 export default defaultApp;

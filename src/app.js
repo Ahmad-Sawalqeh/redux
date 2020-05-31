@@ -42,9 +42,9 @@ steps to make store:
 - react-redux:
 * provider: component helps to provide store to our application
 * connect: 
---> higher order built-in function in react-redux package takes in (mapStateToProps, mapDispatchToProps)
+--> higher order built-in function in react-redux package takes in (mapStateToProps, mapDispatchToProps, mergeProps)
 --> helps to connect the mappStateToProps/mapDispatchToProps functions to the component you specify to access the redux store 
---> return function then call the component function
+--> return function then call the component function includes store state
 
 */
 
@@ -55,7 +55,7 @@ steps to make store:
 // myStore.dispatch(buyCake());
 // myStore.dispatch(buyCake());
 // myStore.dispatch(buyIceCream());
-// myStore.dispatch(buyIceCream());\
+// myStore.dispatch(buyIceCream());
 // // Stop listening to state updates
 // unsubscribe();
 

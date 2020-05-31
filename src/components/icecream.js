@@ -16,7 +16,7 @@ const IceCream = props => {
 };
 
 // function to help turn the state into props and use it in the component
-// taks in tow parameters (state, ownProps)
+// taks in two parameters (state, ownProps)
 function mapStateToProps(state) {
   return {
     numOfIceCreamsPropsName: state.iceCream.numOfIceCreams
