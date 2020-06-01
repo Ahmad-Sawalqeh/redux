@@ -7,16 +7,16 @@ const Cake = props => {
     return (
       <Fragment>
         <div>
-          <h3>number of cakes is {props.numOfCakesPropsName}</h3>
-          <button onClick={() => props.dispatchBuyCakePropsName(1)}>buy ONE cake</button>
-          <button onClick={() => props.dispatchBuyCakePropsName(2)}>buy TWO cakes</button>
-          <button onClick={() => props.dispatchBuyCakePropsName(3)}>buy THREE cakes</button>
+          <h3>number of cakes is {props.state}</h3>
+          <button onClick={() => props.dispatch(1)}>buy ONE cake</button>
+          <button onClick={() => props.dispatch(2)}>buy TWO cakes</button>
+          <button onClick={() => props.dispatch(3)}>buy THREE cakes</button>
         </div>
       </Fragment>
     );
 };
 
-// function to help turn the state into props and use it in the component
+// mapStateToProps: function to help turn the state into props and use it in the component
 // taks in tow parameters (state, ownProps)
 function mapStateToProps(state) {
   return {
@@ -24,7 +24,7 @@ function mapStateToProps(state) {
   };
 }
 
-// function to help turn the dispatch method into props and use it in the component
+// mapDispatchToProps: function to help turn the dispatch method into props and use it in the component
 // taks in tow parameters (state, ownProps)
 function mapDispatchToProps(dispatch) {
   return {
@@ -32,18 +32,28 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-// function to help group all the connected methods to the component
+// mergeProps: function to help group all the connected methods to the component
 // taks in tow parameters (propsFromState, propsFromDispatch, ownProps)
+/*
+Note:
+- propsFromState = returned object from mapStateToProps function
+- propsFromDispatch = returned object from mapDispatchActionToProps function
+- ownProps = already passed in props to the component
+*/
 function mergeProps(propsFromState, propsFromDispatch, ownProps) {
   console.log(`propsFromState => `, propsFromState);
   console.log(`propsFromDispatch => `, propsFromDispatch);
   console.log(`ownProps => `, ownProps);
-  return {};
+  return {
+    state: propsFromState.numOfCakesPropsName,
+    dispatch: propsFromDispatch.dispatchBuyCakePropsName
+  };
 }
 
 // export default connect(
 //     mapStateToProps,
 //     mapDispatchToProps
+//     mergeProps
 // )(Cake);
 
 const defaultApp = connect(
