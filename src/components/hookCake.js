@@ -11,7 +11,7 @@ import { buyCake } from '../redux/actions/actionsCreater.js';
 
 - useDispatch:
 * replacing mapDispatchToProps function
-* return referreance to the dispatch function from the redux store
+* return reference to the dispatch function from the redux store
 * const dispatchName = useDispatch()
 
 Note: no need for { connect } method to connect the mappStateToProps/mapDispatchToProps functions to the component

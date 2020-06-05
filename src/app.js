@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import Cake from './components/cake.js';
 import IceCream from './components/icecream.js';
 import HookCake from './components/hookCake.js';
+import FetchData from './components/fetchData.js';
 
 // Redux is a state container (state-management) library for javascript applications, can be used with React, Angular, Vue or even vanilla Javascript
 
@@ -68,6 +69,8 @@ const App = props => {
         <IceCream />
         <hr />
         <HookCake />
+        <hr />
+        <FetchData />
       </Fragment>
     );
 };
