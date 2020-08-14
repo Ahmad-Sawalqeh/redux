@@ -5,11 +5,13 @@ import { Provider } from "react-redux";
 import App from './app.js';
 
 const Main = () => {
-  return (
-    <Provider store={myStore}>
-      <App />
-    </Provider>
-  );
+    return ( <
+        Provider store = { myStore } >
+        <
+        App / >
+        <
+        /Provider>
+    );
 };
 
-render(<Main />, document.getElementById("root"));
+render( < Main / > , document.getElementById("root"));
